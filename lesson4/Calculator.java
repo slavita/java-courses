@@ -5,17 +5,9 @@ public class Calculator {
 	/**
 	Результат вычислений.
 	*/
-	private int result;
+	public static int result;
 	/**
-	Суммируем аргументы.
-	@param params Аргументы суммирования.
-	*/
-	public void add(int ... params){
-		for(Integer param : params){
-			this.result += param;
-		}
-	}
-	/**
+	
 	получить результат.
 	@return результат вычисления.
 	*/
