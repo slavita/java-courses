@@ -19,6 +19,7 @@ public class InteractRunner {
 				System.out.println("Result : " + calc.getResult());
 				calc.cleanResult();
 				System.out.println("Exit : yes/no ");
+				exit = reader.next();
 			}
 		} finally {
 			reader.close();
