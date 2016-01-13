@@ -19,7 +19,7 @@ public class Calculator {
 	 * провести вычисления в зависимости от введённой операции
 	 * получить результат.
 	 * @return результат вычисления.
-	 * ArgRunner класс отвечающий за виполнение операций
+	 * @ArgRunner класс отвечающий за виполнение операций
 	 */
 	public void calculation(String first, String second, String operation){
 		ArgRunner argRunner = new ArgRunner();
