@@ -4,53 +4,68 @@ import java.util.Scanner;
 	Класс для запуска калькулятора. Поддерживает ввод пользователя.
 */
 public class InteractRunner {
-	
-	public static void main(String[] arg){
-		Scanner reader = new Scanner(System.in);
-		ArgRunner args = new ArgRunner();
-		try {
-			Calculator calc = new Calculator();
-			String exit = "no";
-			String first,second ;
-			while(!exit.equals("yes")) {
-				if(Calculator.result != 0 ) {
-					System.out.println("Reusing a calculation result : yes/no ");
-					String temp = reader.next();
-					if(!temp.equals("yes"))
-					calc.cleanResult();
-					else
+	public String first,second,operation,exit;
+	Scanner reader = new Scanner(System.in);
+
+	/**
+	 конструктор который задаёт первоначальное значение в переменную exit - "no"
+	 */
+	InteractRunner(){
+		this.exit = "no";
+	}
+	/**
+	 ввод первой цифры для дальнейших вычислений.
+	 */
+	public void setNumbersfirrst() {
+		System.out.println("Enter first arg :  ");
+		while (!reader.hasNextInt()) {
+			reader.next();
+		}
+		this.first = reader.next();
+	}
+	/**
+	 ввод второй цифры для дальнейших вычислений.
+	 */
+	public void setNumberssecond() {
+		System.out.println("Enter second arg :  ");
+		while (!reader.hasNextInt()) {
+			reader.next();
+		}
+		this.second = reader.next();
+	}
+	/**
+	 ввод операции для дальнейших вычислений.
+	 */
+	public void setOperation(){
+		System.out.println("Enter operation :  ");
+		this.operation = reader.next();
+	}
+	/**
+	 ввод переменной для выхода из программы.
+	 */
+	public void exit(){
+		System.out.println("Exit : yes/no ");
+		this.exit = reader.next();
+	}
+
+	/**
+	 очистить или использовать повторно результат вычисления.
+	 */
+	public void reusingResult(){
+		if(Calculator.result != 0 ) {
+			System.out.println("Reusing a calculation result : yes/no ");
+			String temp = reader.next();
+			{
+				switch (temp) {
+					case "yes":
+						break;
+					case "no":
+						Calculator.result = 0;
+						break;
+					default:
 						System.out.println("Error input!");
 				}
-				//Валидация
-				System.out.println("Enter first arg :  ");
-				while (!reader.hasNextInt()){
-				 reader.next();
-				}first = reader.next();
-				//Валидация
-				System.out.println("Enter second arg :  ");
-				while (!reader.hasNextInt()){
-					reader.next();
-				}second = reader.next();
-
-				System.out.println("Enter operation :  ");
-				String operation = reader.next();
-				switch (operation){
-					case "+" : args.summa(Integer.valueOf(first),Integer.valueOf(second));
-						break;
-					case "-" : args.subtract(Integer.valueOf(first),Integer.valueOf(second));
-						break;
-					case "*" : args.multiply(Integer.valueOf(first),Integer.valueOf(second));
-						break;
-					case "/" : args.divide(Integer.valueOf(first),Integer.valueOf(second));
-						break;
-					default: System.out.println("Error operation!");
-				}
-				System.out.println("Result : " + calc.getResult());
-				System.out.println("Exit : yes/no ");
-				exit = reader.next();
 			}
-		} finally {
-			reader.close();
 		}
 
 	}
