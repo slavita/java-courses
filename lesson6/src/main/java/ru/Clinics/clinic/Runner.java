@@ -27,10 +27,14 @@ public class Runner {
     /**
      * Начало работы.
      */
-    private void work() {
+    private void work()  {
         while (!isExit) {
             showMenu();
-            processInput();
+            try {
+                processInput();
+            } catch (UserException e) {
+                e.printStackTrace();
+            }
         }
         scanner.close();
     }
@@ -57,7 +61,7 @@ public class Runner {
     /**
      * Процесс пользовательского ввода.
      */
-    private void processInput() {
+    private void processInput() throws UserException {
         int select = 0;
         // validate
         try {
@@ -81,8 +85,7 @@ public class Runner {
                 isExit = true;
                 break;
             default:
-                System.out.println("\tНеверное действие, введите ещё раз!");
-                break;
+                throw new UserException("Неверное действие, введите ещё раз!");
         }
     }
 
@@ -112,8 +115,6 @@ public class Runner {
                 System.out.print("\tКлиент: " + client.getId());
                 if (pet != null) {
                     System.out.println(", питомец: " + pet.getName() + " (" + pet.getClass().getSimpleName() + ")");
-                } else {
-                    System.out.println();
                 }
             }
         }
