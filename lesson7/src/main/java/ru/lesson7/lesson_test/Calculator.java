@@ -25,13 +25,37 @@ public class Calculator {
 	public void calculation(String first, String second, String operation){
 		ArgRunner argRunner = new ArgRunner();
 		switch (operation){
-			case "+" : argRunner.suma(Integer.valueOf(first),Integer.valueOf(second));
+			case "+" :
+				try {
+					argRunner.suma(Integer.valueOf(first),Integer.valueOf(second));
+				} catch (UserException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Введите два параметра! ");
+				}
 				break;
-			case "-" : argRunner.subtract(Integer.valueOf(first),Integer.valueOf(second));
+			case "-" :
+				try {
+					argRunner.subtract(Integer.valueOf(first),Integer.valueOf(second));
+				} catch (UserException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Введите два параметра! ");
+				}
 				break;
-			case "*" : argRunner.multiply(Integer.valueOf(first),Integer.valueOf(second));
+			case "*" :
+				try {
+					argRunner.multiply(Integer.valueOf(first),Integer.valueOf(second));
+				} catch (UserException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Введите два параметра! ");
+				}
 				break;
-			case "/" : argRunner.divide(Integer.valueOf(first),Integer.valueOf(second));
+			case "/" :
+				try {
+					argRunner.divide(Integer.valueOf(first),Integer.valueOf(second));
+				} catch (UserException e) {
+					System.out.println(e.getMessage());
+					System.out.println("Введите два параметра! ");
+				}
 				break;
 			default: System.out.println("Error operation!");
 		}

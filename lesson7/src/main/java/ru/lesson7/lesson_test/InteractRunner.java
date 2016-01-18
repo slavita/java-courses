@@ -83,7 +83,7 @@ public class InteractRunner {
 	/**
 	 очистить или использовать повторно результат вычисления.
 	 */
-	public void reusingResult(){
+	public void reusingResult() throws UserException {
 		if(Calculator.result != 0 ) {
 			System.out.println("Reusing a calculation result : yes/no ");
 			String temp = reader.next();
@@ -95,7 +95,7 @@ public class InteractRunner {
 						Calculator.result = 0;
 						break;
 					default:
-						System.out.println("Error input!");
+						throw new UserException("Error input!");
 				}
 			}
 		}

@@ -8,37 +8,61 @@ public class ArgRunner{
 	/**
 	 * выполнение операции суммирования.
 	 */
-	public void suma(int ... params){
-		for(Integer param : params){
-			Calculator.result += param;
+	public void suma(int ... params) throws UserException{
+		if(params.length > 0){
+			for(int args : params){
+				Calculator.result += args;
+			}
+		}else {
+			throw new UserException("Вы должны ввести аргумент!");
 		}
 	}
 	/**
 	 * выполнение операции вычитания.
 	*/
-	public void subtract(int ... params) {
-		Calculator.result = params[0];
-		for (int i = 1; i < params.length; i++) {
-			Calculator.result -= params[i];
+	public void subtract(int ... params)  throws UserException{
+		if(params.length > 0){
+			Calculator.result = params[0];
+			for (int i = 1; i < params.length; i++) {
+				Calculator.result -= params[i];
+			}
+		}else {
+			throw new UserException("Вы должны ввести аргумент!");
 		}
 	}
 	/**
 	 * выполнение операции умножения.
 	 */
-	public void multiply(int ... params){
+	public void multiply(int ... params) throws UserException{
+		if(params.length > 0){
 		Calculator.result = 1;
 		for(Integer param : params){
 			Calculator.result *= param;
 		}
+	}else {
+		throw new UserException("Вы должны ввести аргумент!");
+		}
 	}
+
 	/**
 	 * выполнение операции деления.
-	 */
-	public void divide(int ... params){
-		Calculator.result = params[0];
-		for(int i = 1; i < params.length; i++){
-			Calculator.result /=  params[i];
+	 * @param params входящие аргументы.
+	 * @throws UserException Если аргумента нет,выкидываем исключение.
+     */
+
+	public void divide(int ... params) throws UserException{
+		if(params.length > 0){
+			Calculator.result = params[0];
+			for(int args : params){
+				if(args == 0){
+					throw new IllegalArgumentException("Вы пытаетесь разделить на ноль!");
+				}
+				Calculator.result /=  args;
+			}
+		}else {
+			throw new UserException("Вы должны ввести аргумент!");
 		}
+
 	}
 
 	
