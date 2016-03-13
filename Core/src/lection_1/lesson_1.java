@@ -15,7 +15,7 @@ public class lesson_1 {
         b = a ^ b;
         a = a ^ b;
 
-        System.out.println(" a = " + a + " b = " + b);
+        System.out.println(" a = " + a + " b = " + b + 1 + 2);
 
 
         int[] c = {1, 7, 3, 8, 5};
