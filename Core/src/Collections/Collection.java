@@ -8,7 +8,7 @@ import static java.util.Arrays.*;
 public class Collection {
     public static void main(String[] args) {
 
-        /*
+
         CollectionTest test = new CollectionTest();
 
         ArrayList<Integer> array = new ArrayList<>();
@@ -48,10 +48,10 @@ public class Collection {
         System.out.println("LinkedList :  " + time2 + " ms");
         System.out.println("HashSet    :  " + time3 + " ms");
         System.out.println("TreeSet    :  " + time4 + " ms");
-        */
 
+/*
         List<String> list = new ArrayList<>(asList("DDD","BB","C"));
-        //List<String> list1 = new ArrayList<>(new HashSet<>(list));
+        List<String> list1 = new ArrayList<>(new HashSet<>(list));
 
         for(int k = 0; k < list.size(); k++){
             System.out.println(list.get(k));
@@ -70,6 +70,7 @@ public class Collection {
         for(Map.Entry<String,String> elem : map.entrySet()){
             System.out.println(elem.getKey() + " -> " + elem.getValue());
         }
+        */
     }
 
 
