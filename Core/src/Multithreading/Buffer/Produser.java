@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Buffer;
 
 public class Produser implements Runnable {
     private int startValue;

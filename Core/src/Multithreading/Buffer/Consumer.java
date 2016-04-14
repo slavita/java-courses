@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Buffer;
 
 public class Consumer implements Runnable{
     private final int id;

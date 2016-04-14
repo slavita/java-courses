@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Buffer;
 
 public class SingleElementBuffer {
     private Integer elem = null;

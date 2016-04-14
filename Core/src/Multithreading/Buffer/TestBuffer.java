@@ -1,4 +1,4 @@
-package Multithreading;
+package Multithreading.Buffer;
 
 public class TestBuffer {
     public static void main(String[] args) throws InterruptedException{
